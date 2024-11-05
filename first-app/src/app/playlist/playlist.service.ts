@@ -56,6 +56,17 @@ export class PlaylistService {
     })
   }
 
+  editSong(index: number, title: string, artist: string, genre: string, duration: number, rating: number) {
+    this.playlist.update(current => {
+      current[index].songs[index].title = title;
+      current[index].songs[index].artist = artist;
+      current[index].songs[index].genre = genre;
+      current[index].songs[index].duration = duration;
+      current[index].songs[index].rating = rating;
+      return [...current];
+    })
+  }
+
 
   constructor() { }
 }
