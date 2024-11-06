@@ -108,4 +108,28 @@ e creare ng new potify entranto poi si install bootstrap con npm install bootstr
 e poi entrando su spotify in angular.json in in style aggiungere lo stile di boostrap prima di quello css poichè si vuole che si prenda come riderimento quella come principale andando
 a vedere quel collegamento in node_modules bootstrap dist css
 e aggiungere anche lo script  si svuota il component.html
+routing fra componenti quale componente utilizzare a seconda della url
 
+
+modifica del file app.roots importa la classe roots esporta una costante chiamata roots (rotte, percorsi) i percorsi della nostra applicazione cioè un array possiamo avere diversi percorsi della nostra applicazione
+in routes ci mettiamo gli oggetti come path è un percorso partendo dal percorso github.dev quando il percorso è vuoto vizualizza la home page dell'applicazione quindi nuova proprietà component e si vuole vizualizzare il homecomponent
+
+    {path: '',component: HomeComponent },
+    {path: '/search', component: SearchComponent},
+    {path: '/credit', component: CreditsComponent},
+    {path: '/login', component: LoginComponent},
+    {path: '*', component: NoteFoundComponent},
+
+routerLink="" routerLinkActive="Active"
+router link al posto di href 
+permette di non richiedere una nuova url ma viene semplicemente modificato il contenuto di quel router outlet. 
+
+  <router-outlet></router-outlet>
+  countinua ad essere sostituito da app-home eccetera per evitare il relod della pagina e quindi ogni volta neccessario fa da solo
+
+poi il compoente dovrà contenere la vizualizzazione che a me interessa.
+
+l'uso di api di spotify è un service che crea un servizio
+
+
+quali metodi il nostro servizio dovrà mettere a disposizione dei compoenti
