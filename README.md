@@ -101,3 +101,11 @@ typescript
 L'operatore ! permette di dichiarare una variabile senza assegnarle subito un valore. Questo è utile quando si vuole indicare che la variabile verrà inizializzata più avanti nel codice, evitando errori di "non assegnazione".
 
 
+
+# CREAZIONE WEBAPP SPOTIFY CON USO DI API
+uscire da first app
+e creare ng new potify entranto poi si install bootstrap con npm install bootstrap
+e poi entrando su spotify in angular.json in in style aggiungere lo stile di boostrap prima di quello css poichè si vuole che si prenda come riderimento quella come principale andando
+a vedere quel collegamento in node_modules bootstrap dist css
+e aggiungere anche lo script  si svuota il component.html
+
