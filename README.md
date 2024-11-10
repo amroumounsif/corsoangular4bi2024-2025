@@ -120,16 +120,9 @@ in routes ci mettiamo gli oggetti come path è un percorso partendo dal percorso
     {path: '/login', component: LoginComponent},
     {path: '*', component: NoteFoundComponent},
 
-routerLink="" routerLinkActive="Active"
-router link al posto di href 
-permette di non richiedere una nuova url ma viene semplicemente modificato il contenuto di quel router outlet. 
-
-  <router-outlet></router-outlet>
-  countinua ad essere sostituito da app-home eccetera per evitare il relod della pagina e quindi ogni volta neccessario fa da solo
-
-poi il compoente dovrà contenere la vizualizzazione che a me interessa.
-
-l'uso di api di spotify è un service che crea un servizio
-
-
-quali metodi il nostro servizio dovrà mettere a disposizione dei compoenti
+Navigazione in Angular
+routerLink: In Angular, routerLink sostituisce l'uso di href per la navigazione tra pagine, consentendo il caricamento del nuovo contenuto senza dover ricaricare l'intera pagina.
+routerLinkActive: Questo attributo aggiunge una classe (es. "Active") al link attivo, utile per mostrare lo stato di navigazione attuale dell’utente.
+router-outlet: È il contenitore in cui vengono caricati i componenti di una rotta specifica. Ogni volta che si utilizza routerLink per cambiare pagina, il contenuto del router-outlet viene aggiornato con il nuovo componente senza ricaricare l'intera applicazione, migliorando la velocità e l’esperienza utente.
+Caricamento di Componenti Angular
+I componenti che verranno caricati in router-outlet (es. app-home, app-profile, etc.) contengono la visualizzazione e la logica specifica per ogni rotta. Ogni componente definisce il contenuto che l’utente vedrà in quella sezione dell’app.
