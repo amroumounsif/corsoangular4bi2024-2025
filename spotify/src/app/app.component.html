@@ -10,13 +10,16 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
         </li>
+        @if(validToke()){
         <li class="nav-item">
           <a class="nav-link" routerLink="./search" routerLinkActive="active">Search</a>
         </li>
+        }
         <li class="nav-item">
           <a class="nav-link" routerLink="./credits" routerLinkActive="active">credit</a>
         </li>
       </ul>
+      <!--Soltanto quando ho il token se no non posso fare le ricerche-->
       <form class="d-flex" role="search">
         <a class="btn btn-outline-success" routerLink="./login" routerLinkActive="active">Login</a>
       </form>

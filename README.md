@@ -114,6 +114,7 @@ routing fra componenti quale componente utilizzare a seconda della url
 modifica del file app.roots importa la classe roots esporta una costante chiamata roots (rotte, percorsi) i percorsi della nostra applicazione cioè un array possiamo avere diversi percorsi della nostra applicazione
 in routes ci mettiamo gli oggetti come path è un percorso partendo dal percorso github.dev quando il percorso è vuoto vizualizza la home page dell'applicazione quindi nuova proprietà component e si vuole vizualizzare il homecomponent
 
+
     {path: '',component: HomeComponent },
     {path: '/search', component: SearchComponent},
     {path: '/credit', component: CreditsComponent},
@@ -126,3 +127,43 @@ routerLinkActive: Questo attributo aggiunge una classe (es. "Active") al link at
 router-outlet: È il contenitore in cui vengono caricati i componenti di una rotta specifica. Ogni volta che si utilizza routerLink per cambiare pagina, il contenuto del router-outlet viene aggiornato con il nuovo componente senza ricaricare l'intera applicazione, migliorando la velocità e l’esperienza utente.
 # Caricamento di Componenti Angular
 I componenti che verranno caricati in router-outlet (es. app-home, app-profile, etc.) contengono la visualizzazione e la logica specifica per ogni rotta. Ogni componente definisce il contenuto che l’utente vedrà in quella sezione dell’app.
+
+---------------------------------------------------------------------------- DA SISTEMARE A CASA
+HTTP headers e 
+HTTPClient è un servizio
+
+funzione di callback
+
+voglio che le mie istruzioni vengano eseguite all'inizio prima che qualsiasi cosa venga vizualizzata nel browser viene eseguito questo codice
+per recuperare i dati
+```
+  ngOnInit(): void {
+    this.spotifyServices.getToken(); 
+  }
+```
+ngOnInit funzione di callback ma quando il componente principale viene caricato in memoria ecco che viene eseguito il codice. Sul ngOnInit manda la richiesta spotify per richiedere il token
+
+HTTP params è un oggetto non puoi usarla come se fosse un array HTTP params.set ti poermette di aggiungere una copia con il primo valore che è il nome del parametro il secondo il valore del parametro.
+è come scrivere 
+parametro vaore concatenata da end può essere fatta con il .set anche http header usa anche questo il set il set specifica il nome del parametro = valore 
+grant_type=client_credentials&client_id=32c8f705bca34d008e9b27ee2d801cba&client_secret=07dbaa796793450f8b762e7a50ea2107
+
+
+POST https://accounts.spotify.com/api/token
+Content-Type: application/x-www-form-urlencoded è come scrivere 
+```
+ let headers: HttpHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/x-www-form-urlencoded');
+```
+
+
+Una form può avere un metodo get o post e un action un indirizzo a cui mando quella richiesta la solo for manda già cuna richiesta con metodo post con quella url e nel body inserisce una scringa www.url.incodid in cui inserisce greant_type e quello che l'utente ci scrive dentro.
+
+nella get nella url nel post nel body.
+il metodo post restituisce un observable è come a fetch restituisce una promise che deve essere risolta  
+observable oggetti che sono metodo asincroni che hanno funzioni di callback al posto di chiamarlo then lo chiama subscribe mi consente di definire un parametro, funzione di clalback quando il server mi manda i parametri.
+
+
+
+
+

@@ -53,6 +53,7 @@ export class SpotifyService {
         // interval fa parte della libreria rxjs, ed è un observable. (il parametro fra parentesi corrisponde al tempo
         // in millesecondi di attesa prima che venga eseguita la funzione anonima specificata con subscribe).
         interval(this.token.expireIn).subscribe(() => {
+          this._tokenValid.set(false);
           this.httpClient.post<IToken>(this.URLaccount, body.toString(), { headers: headers })
             .subscribe(dati => {
               this.token = new Token(dati);

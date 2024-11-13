@@ -2,3 +2,8 @@ POST https://accounts.spotify.com/api/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=client_credentials&client_id=32c8f705bca34d008e9b27ee2d801cba&client_secret=07dbaa796793450f8b762e7a50ea2107
+
+
+###
+GET https://api.spotify.com/v1/search?q=rhove&type=artist 
+Authorization: Bearer BQD7EeupSDq3GbadgSZbU23j9R4zUfxLs_GGgZnoKJtITBlKrqi1jYFekk_rtCbiVNOK8EZo864tRlVpCVRw6AIQXc5QEqEJ49eoi35TuBl-f8OYv-w
