@@ -1,8 +1,10 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Token } from './token';
 import { IToken } from './i-token';
-import { interval } from 'rxjs';
+import { Observable, interval, observeOn } from 'rxjs';
+import { SearchComponent } from './search/search.component';
+import { Search } from './i-spotify';
 
 @Injectable({
   providedIn: 'root'
@@ -62,5 +64,15 @@ export class SpotifyService {
         })
       })
   }
+
+
+searchArtist(artistName: string): Observable<Search>{
+  let url = this.URLbase = '/search?q=' + artistName + '&type=artist';
+  let httpHeaders = new HttpHeaders()
+                        .set('Authorization', this.token.bearer);
+                        
+  return this.httpClient.get<Search>(url)
+  
+}
 
 }
