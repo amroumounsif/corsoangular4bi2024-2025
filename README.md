@@ -204,7 +204,7 @@ ngOnInit(): void {
  ```
 In questo esempio, il metodo  ```getToken ``` viene chiamato durante l'inizializzazione del componente per ottenere un token Spotify.
 
-# HTTP Params e Headers
+# HTTP Params
 HTTP Params
 Gli HTTP params rappresentano i parametri di una richiesta HTTP.
 Non possono essere trattati come un array ma devono essere gestiti con il metodo .set(), che aggiunge una copia del parametro con il nome e valore forniti.
