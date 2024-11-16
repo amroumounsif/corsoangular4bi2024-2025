@@ -129,39 +129,94 @@ router-outlet: È il contenitore in cui vengono caricati i componenti di una rot
 I componenti che verranno caricati in router-outlet (es. app-home, app-profile, etc.) contengono la visualizzazione e la logica specifica per ogni rotta. Ogni componente definisce il contenuto che l’utente vedrà in quella sezione dell’app.
 
 ---------------------------------------------------------------------------- DA SISTEMARE A CASA
-HTTP headers e 
-HTTPClient è un servizio
 
-funzione di callback
+# HTTPClient e callback
+HTTPClient è un servizio che consente di eseguire richieste HTTP in un'app Angular.
+Funzione di callback: Una funzione eseguita quando un'operazione asincrona (come una richiesta HTTP) è completata.
 
-voglio che le mie istruzioni vengano eseguite all'inizio prima che qualsiasi cosa venga vizualizzata nel browser viene eseguito questo codice
-per recuperare i dati
+# Esecuzione di codice all'inizio di un componente
+La funzione ```ngOnInit()``` è un lifecycle hook in Angular. Viene eseguita dopo che il componente è stato caricato in memoria, ma prima che sia visibile nel browser.
+Può essere utilizzata per recuperare dati o eseguire altre operazioni iniziali.
+Esempio:
+ ```
+ngOnInit(): void {
+  this.spotifyServices.getToken(); 
+}
+ ```
+In questo esempio, il metodo  ```getToken ``` viene chiamato durante l'inizializzazione del componente per ottenere un token Spotify.
+
+# HTTP Params e Headers
+HTTP Params
+Gli HTTP params rappresentano i parametri di una richiesta HTTP.
+Non possono essere trattati come un array ma devono essere gestiti con il metodo .set(), che aggiunge una copia del parametro con il nome e valore forniti.
+Esempio:
+ ```
+let params = new HttpParams().set('grant_type', 'client_credentials');
+ ```
+
+# HTTP Headers
+Gli HTTP headers sono utilizzati per specificare informazioni aggiuntive sulla richiesta.
+Anche gli headers vengono impostati con il metodo .set().
+Esempio:
+ ```
+let headers: HttpHeaders = new HttpHeaders()
+  .set('Content-Type', 'application/x-www-form-urlencoded');ù
+ ```
+
+# Esempio di richiesta POST a Spotify API
+URL:
+ ```POST https://accounts.spotify.com/api/token ```
+ Header richiesto:
+ ```Content-Type: application/x-www-form-urlencoded```
+
+ Esempio di implementazione Angular:
+ ```
+ let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+let body = new HttpParams()
+  .set('grant_type', 'client_credentials')
+  .set('client_id', '32c8f705bca34d008e9b27ee2d801cba')
+  .set('client_secret', '07dbaa796793450f8b762e7a50ea2107');
+
+this.http.post('https://accounts.spotify.com/api/token', body, { headers })
+  .subscribe(response => {
+    console.log(response);
+  });
 ```
-  ngOnInit(): void {
-    this.spotifyServices.getToken(); 
-  }
+
+# GET e POST
+Metodo ```GET```: I parametri sono passati nella URL.
+Metodo ```POST```: I parametri sono inviati nel corpo della richiesta (body).
+
+# Observables
+Un Observable è un oggetto che gestisce operazioni asincrone in Angular (come richieste HTTP).
+È simile a una Promise, ma consente un approccio più flessibile:
+Utilizza ```.subscribe()``` invece di ```.then().```
+In ```.subscribe()```, puoi definire una funzione di callback per gestire i dati ricevuti.
+Esempio:
 ```
-ngOnInit funzione di callback ma quando il componente principale viene caricato in memoria ecco che viene eseguito il codice. Sul ngOnInit manda la richiesta spotify per richiedere il token
-
-HTTP params è un oggetto non puoi usarla come se fosse un array HTTP params.set ti poermette di aggiungere una copia con il primo valore che è il nome del parametro il secondo il valore del parametro.
-è come scrivere 
-parametro vaore concatenata da end può essere fatta con il .set anche http header usa anche questo il set il set specifica il nome del parametro = valore 
-grant_type=client_credentials&client_id=32c8f705bca34d008e9b27ee2d801cba&client_secret=07dbaa796793450f8b762e7a50ea2107
-
-
-POST https://accounts.spotify.com/api/token
-Content-Type: application/x-www-form-urlencoded è come scrivere 
-```
- let headers: HttpHeaders = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
+this.http.get('https://api.example.com/data')
+  .subscribe(data => {
+    console.log(data);
+  });
 ```
 
+# Form in HTML
+Una ```<form>``` può avere:
+Metodo: Specifica se inviare i dati con ```GET``` o ```POST```.
+Action: URL a cui inviare la richiesta.
+Esempio:
+```
+<form method="POST" action="https://accounts.spotify.com/api/token">
+  <input type="text" name="grant_type" value="client_credentials">
+  <button type="submit">Invia</button>
+</form>
+```
 
-Una form può avere un metodo get o post e un action un indirizzo a cui mando quella richiesta la solo for manda già cuna richiesta con metodo post con quella url e nel body inserisce una scringa www.url.incodid in cui inserisce greant_type e quello che l'utente ci scrive dentro.
+Quando il modulo viene inviato, invia una richiesta POST con i parametri nel body in formato ```application/x-www-form-urlencoded```.
 
-nella get nella url nel post nel body.
-il metodo post restituisce un observable è come a fetch restituisce una promise che deve essere risolta  
-observable oggetti che sono metodo asincroni che hanno funzioni di callback al posto di chiamarlo then lo chiama subscribe mi consente di definire un parametro, funzione di clalback quando il server mi manda i parametri.
+
+
+
 
 
 
