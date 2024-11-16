@@ -128,7 +128,6 @@ router-outlet: È il contenitore in cui vengono caricati i componenti di una rot
 # Caricamento di Componenti Angular
 I componenti che verranno caricati in router-outlet (es. app-home, app-profile, etc.) contengono la visualizzazione e la logica specifica per ogni rotta. Ogni componente definisce il contenuto che l’utente vedrà in quella sezione dell’app.
 
----------------------------------------------------------------------------- DA SISTEMARE A CASA
 
 # HTTPClient e callback
 HTTPClient è un servizio che consente di eseguire richieste HTTP in un'app Angular.
