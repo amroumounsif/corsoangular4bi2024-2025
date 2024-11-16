@@ -100,19 +100,100 @@ typescript
 # Assegnazione di Variabili con l'Operatore !
 L'operatore ! permette di dichiarare una variabile senza assegnarle subito un valore. Questo è utile quando si vuole indicare che la variabile verrà inizializzata più avanti nel codice, evitando errori di "non assegnazione".
 
+# Creazione di una nuova applicazione Angular
+Uscire dall'app corrente (es. ```first-app```).
+Creare una nuova applicazione con il comando:
+```ng new spotify```
+Seguire le istruzioni per configurare l'applicazione.
+
+# Installazione di Bootstrap
+Entrare nella directory del progetto Spotify:
+```cd spotify```
+Installare Bootstrap tramite npm:
+```npm install bootstrap```
+Aggiungere lo stile di Bootstrap in ```angular.json```:
+Aprire il file ```angular.json```.
+Nella proprietà ```"styles"```, aggiungere il file di stile di Bootstrap prima del file CSS personalizzato:
+```
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+```
+Se necessario, aggiungere anche gli script di Bootstrap:
+```
+"scripts": [
+  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+]
+```
+# Pulizia del componente iniziale
+Svuotare il file ```app.component.html``` per rimuovere il contenuto di default.
+Preparare il layout per il routing e altri componenti.
+
+# Routing tra componenti
+Il routing consente di gestire quale componente visualizzare in base alla URL.
+
+Configurare il routing
+Creare il file delle rotte:
+
+Nel file ```app-routing.module.ts``` (generato automaticamente) o manualmente:
+```
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent } // Visualizza HomeComponent per la URL vuota
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+```
+Aggiornare ```app.module.ts```:
+Assicurarsi di importare ```AppRoutingModule``` nel file ```app.module.ts```:
+```
+import { AppRoutingModule } from './app-routing.module';
+
+@NgModule({
+  declarations: [/* altri componenti */],
+  imports: [
+    AppRoutingModule,
+    /* altri moduli */
+  ],
+})
+export class AppModule {}
+```
+
+# Aggiungere nuovi percorsi
+Ogni percorso è un oggetto che definisce:
+
+```path```: La parte della URL che attiva il componente.
+```component```: Il componente da visualizzare.
+Esempio:
+``
+const routes: Routes = [
+  { path: '', component: HomeComponent },          // URL vuota → HomeComponent
+  { path: 'about', component: AboutComponent },    // /about → AboutComponent
+  { path: '**', component: NotFoundComponent }     // Percorso non trovato → NotFoundComponent
+];
+``
 
 
-# CREAZIONE WEBAPP SPOTIFY CON USO DI API
-uscire da first app
-e creare ng new potify entranto poi si install bootstrap con npm install bootstrap
-e poi entrando su spotify in angular.json in in style aggiungere lo stile di boostrap prima di quello css poichè si vuole che si prenda come riderimento quella come principale andando
-a vedere quel collegamento in node_modules bootstrap dist css
-e aggiungere anche lo script  si svuota il component.html
-routing fra componenti quale componente utilizzare a seconda della url
 
 
-modifica del file app.roots importa la classe roots esporta una costante chiamata roots (rotte, percorsi) i percorsi della nostra applicazione cioè un array possiamo avere diversi percorsi della nostra applicazione
-in routes ci mettiamo gli oggetti come path è un percorso partendo dal percorso github.dev quando il percorso è vuoto vizualizza la home page dell'applicazione quindi nuova proprietà component e si vuole vizualizzare il homecomponent
+
+
+
+
+
+
+
+
+
+
 
 
     {path: '',component: HomeComponent },
