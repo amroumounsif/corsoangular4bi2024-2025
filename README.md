@@ -173,6 +173,7 @@ Ogni percorso è un oggetto che definisce:
 ```path```: La parte della URL che attiva il componente.
 ```component```: Il componente da visualizzare.
 Esempio:
+
 ``
 const routes: Routes = [
   { path: '', component: HomeComponent },          // URL vuota → HomeComponent
