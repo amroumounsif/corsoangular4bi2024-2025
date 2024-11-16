@@ -173,13 +173,13 @@ Ogni percorso è un oggetto che definisce:
 ```path```: La parte della URL che attiva il componente.
 ```component```: Il componente da visualizzare.
 Esempio:
-``
+```
 const routes: Routes = [
   { path: '', component: HomeComponent },          // URL vuota → HomeComponent
   { path: 'about', component: AboutComponent },    // /about → AboutComponent
   { path: '**', component: NotFoundComponent }     // Percorso non trovato → NotFoundComponent
 ];
-``
+```
 
 # Navigazione in Angular
 routerLink: In Angular, routerLink sostituisce l'uso di href per la navigazione tra pagine, consentendo il caricamento del nuovo contenuto senza dover ricaricare l'intera pagina.
