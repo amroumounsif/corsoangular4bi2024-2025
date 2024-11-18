@@ -259,6 +259,9 @@ this.http.get('https://api.example.com/data')
   });
 ```
 
+metodo pipe posso preelaborare i dati prima di mettere a disposizione i dati
+
+
 # Form in HTML
 Una ```<form>``` può avere:
 Metodo: Specifica se inviare i dati con ```GET``` o ```POST```.

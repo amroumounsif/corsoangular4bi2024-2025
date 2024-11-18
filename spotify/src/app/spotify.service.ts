@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Token } from './token';
 import { IToken } from './i-token';
@@ -54,6 +54,7 @@ export class SpotifyService {
         this._tokenValid.set(true);
         // interval fa parte della libreria rxjs, ed è un observable. (il parametro fra parentesi corrisponde al tempo
         // in millesecondi di attesa prima che venga eseguita la funzione anonima specificata con subscribe).
+        //il service continua a mandare richieste 
         interval(this.token.expireIn).subscribe(() => {
           this._tokenValid.set(false);
           this.httpClient.post<IToken>(this.URLaccount, body.toString(), { headers: headers })
@@ -65,13 +66,13 @@ export class SpotifyService {
       })
   }
 
-
 searchArtist(artistName: string): Observable<Search>{
   let url = this.URLbase = '/search?q=' + artistName + '&type=artist';
   let httpHeaders = new HttpHeaders()
-                        .set('Authorization', this.token.bearer);
-                        
-  return this.httpClient.get<Search>(url)
+                        .set('Authorization', this.token.bearer);     
+
+  return this.httpClient.get<Search>(url, {headers: httpHeaders});
+  
   
 }
 

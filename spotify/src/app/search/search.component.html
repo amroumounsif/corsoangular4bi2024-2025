@@ -1,1 +1,15 @@
-<p>search works!</p>
+<div class="container">
+    <label for="artistName" class="form-label">Artist Name</label>
+    <input type="text" id="artistName" class="form-control" placeholder="artist Name..." [formControl] = "searchInput">
+</div>
+if(artistList!()){
+<div class="container">
+    <div class="list-group">
+        @for(artist of artistList!().artist.item; track $index ) {
+        <a href="#" class="list-group-item list-group-item-action">{{artist.name}}</a>
+        }
+      </div>
+</div>
+
+}
+
