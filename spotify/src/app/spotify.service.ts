@@ -11,8 +11,8 @@ import { Search } from './i-spotify';
 })
 export class SpotifyService {
 
-  private clientId: string = 'f42febd685e745bb85c7840670a6c473';
-  private clientSecret: string = 'f0fec519d863407490f0dc92e240f0c0';
+  private clientId: string = '32c8f705bca34d008e9b27ee2d801cba';
+  private clientSecret: string = '07dbaa796793450f8b762e7a50ea2107';
 
   // Dependency injection della classe HttpClient
   constructor(private httpClient: HttpClient) { }

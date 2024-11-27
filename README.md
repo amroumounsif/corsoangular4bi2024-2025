@@ -275,13 +275,3 @@ Esempio:
 ```
 
 Quando il modulo viene inviato, invia una richiesta POST con i parametri nel body in formato ```application/x-www-form-urlencoded```.
-
-
-
-
-
-
-
-
-
-
