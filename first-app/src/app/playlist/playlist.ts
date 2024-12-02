@@ -24,7 +24,7 @@ export class Playlist {
     set name(name: string) {
         this._name = name;
     }
-    
+
     get description(): string {
         return this._description;
     }
@@ -54,6 +54,6 @@ export class Playlist {
     }
 
     get duration(): number {
-        return this._songs.reduce((totalDuration, song,) => totalDuration += song.duration, 0);
+        return this._songs.reduce((totalDuration, song) => totalDuration += song.duration, 0 );
     }
 }

@@ -18,4 +18,8 @@ export class Token {
     get expireIn(): number {
         return this.expires_in * 1000;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div id="main" class="container">
     <div class="container py-3">
         <label for="artistName" class="form-label">Artist name</label>
@@ -20,3 +21,20 @@
         </div>
     }
 </div>
+=======
+<div class="container">
+    <label for="artistName" class="form-label">Artist Name</label>
+    <input type="text" id="artistName" class="form-control" placeholder="artist Name..." [formControl] = "searchInput">
+</div>
+if(artistList!()){
+<div class="container">
+    <div class="list-group">
+        @for(artist of artistList!().artist.item; track $index ) {
+        <a href="#" class="list-group-item list-group-item-action">{{artist.name}}</a>
+        }
+      </div>
+</div>
+
+}
+
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013

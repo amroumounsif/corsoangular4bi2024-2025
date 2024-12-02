@@ -17,7 +17,11 @@ describe('AppComponent', () => {
   it(`should have the 'spotify' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
+<<<<<<< HEAD
     expect(app.title).toEqual('spotify');
+=======
+    //expect(.toEqual('spotify');
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
   });
 
   it('should render title', () => {

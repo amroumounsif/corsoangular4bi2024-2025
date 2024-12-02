@@ -2,17 +2,28 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
 import { Token } from './token';
 import { IToken } from './i-token';
+<<<<<<< HEAD
 import { interval, Observable } from 'rxjs';
 import { Search } from './i-search';
 import { Albums } from './i-albums';
+=======
+import { Observable, interval, observeOn } from 'rxjs';
+import { SearchComponent } from './search/search.component';
+import { Search } from './i-spotify';
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
 
 @Injectable({
   providedIn: 'root'
 })
 export class SpotifyService {
 
+<<<<<<< HEAD
   private clientId: string = 'fd268e66ef254b04a0b918892d556d1e';
   private clientSecret: string = '0137008dd6a54daba1d2aaf795445ecc';
+=======
+  private clientId: string = '32c8f705bca34d008e9b27ee2d801cba';
+  private clientSecret: string = '07dbaa796793450f8b762e7a50ea2107';
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
 
   // Dependency injection della classe HttpClient
   constructor(private httpClient: HttpClient) { }
@@ -50,11 +61,18 @@ export class SpotifyService {
       .subscribe(dati => {
         // Memorizzo in this.token una nuova istanza della classe Token con i dati ricevuti da Soptify
         this.token = new Token(dati);
+<<<<<<< HEAD
         console.log(this.token);
+=======
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
         // Avviso con signal che il token è arrivato
         this._tokenValid.set(true);
         // interval fa parte della libreria rxjs, ed è un observable. (il parametro fra parentesi corrisponde al tempo
         // in millesecondi di attesa prima che venga eseguita la funzione anonima specificata con subscribe).
+<<<<<<< HEAD
+=======
+        //il service continua a mandare richieste 
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
         interval(this.token.expireIn).subscribe(() => {
           this._tokenValid.set(false);
           this.httpClient.post<IToken>(this.URLaccount, body.toString(), { headers: headers })
@@ -66,6 +84,7 @@ export class SpotifyService {
       })
   }
 
+<<<<<<< HEAD
   // La funzione searchArtist restituisce un Observable, oggetto introdotto dalla libreria rxjs.
   // Il funzionamento è simile alle Promises, ma a differenza di quest'ultime, la funzione da eseguire
   // nel caso di obervable fullfilled va passata attraverso il metodo subscribe (vedi sopra)
@@ -86,5 +105,16 @@ export class SpotifyService {
 
     return this.httpClient.get<Albums>(url, {headers: httpHeaders});
   }
+=======
+searchArtist(artistName: string): Observable<Search>{
+  let url = this.URLbase = '/search?q=' + artistName + '&type=artist';
+  let httpHeaders = new HttpHeaders()
+                        .set('Authorization', this.token.bearer);     
+
+  return this.httpClient.get<Search>(url, {headers: httpHeaders});
+  
+  
+}
+>>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
 
 }
