@@ -1,27 +1,25 @@
-import { Component } from '@angular/core';
-<<<<<<< HEAD
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-=======
->>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
+import { LoginService } from '../login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-<<<<<<< HEAD
   imports: [ReactiveFormsModule],
-=======
-  imports: [],
->>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-<<<<<<< HEAD
+
+  loginServices: LoginService = inject(LoginService);
+
   loginForm: FormGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
-=======
 
->>>>>>> 79f92169428bac774ff2772401cdfbfc030c0013
+  login(): void {
+    console.log('ok');
+  }
+  
 }

@@ -1,1 +1,11 @@
-<p>login works!</p>
+<div id="main" class="d-flex-align_items-center justify-content.center" >
+    <div class="login-form">
+        <form [formGroup]="loginform" (ngSubmit) = "login()">
+            <label for="username" class="form-lable">UNome utente</label>
+            <input type="text" class="form-control is-invalid">
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+</div>

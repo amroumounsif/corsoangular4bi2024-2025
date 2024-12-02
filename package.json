@@ -1,0 +1,11 @@
+{
+  "name": "corsoangular4bi2024-2025",
+  "version": "1.0.0",
+  "description": "Angular è un framework potente e versatile per la creazione di applicazioni web moderne.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
